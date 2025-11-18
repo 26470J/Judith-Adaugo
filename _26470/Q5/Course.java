@@ -1,0 +1,36 @@
+package Id_26470.Q5;
+
+    public class Course extends Department {
+        private String courseName;
+        private String courseCode;
+        private int credits; // >0
+
+        public Course(int id, String createdDate, String updatedDate, String institutionName, String code, String address, String departmentName, String departmentHead, String courseName, String courseCode, int credits) {
+            super(id, createdDate, updatedDate, institutionName, code, address, departmentName, departmentHead);
+            this.courseName = courseName;
+            this.courseCode = courseCode;
+            this.credits = credits;
+        }
+
+        public String getCourseName() { return courseName; }
+        public void setCourseName(String courseName) throws AttendanceDataException {
+            if (courseName == null || courseName.trim().isEmpty())
+                throw new AttendanceDataException("courseName cannot be empty");
+            this.courseName = courseName;
+        }
+
+        public String getCourseCode() { return courseCode; }
+        public void setCourseCode(String courseCode) throws AttendanceDataException {
+            if (courseCode == null || courseCode.trim().isEmpty())
+                throw new AttendanceDataException("courseCode cannot be empty");
+            this.courseCode = courseCode;
+        }
+
+        public int getCredits() { return credits; }
+        public void setCredits(int credits) throws AttendanceDataException {
+            if (credits <= 0) throw new AttendanceDataException("credits must be > 0");
+            this.credits = credits;
+        }
+    }
+
+
